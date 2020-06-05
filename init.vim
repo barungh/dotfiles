@@ -237,3 +237,13 @@ call plug#end()
 
 
 
+    " Create a function to open a neovim terminal in a small split window and run python 
+    function! Termpy()
+        exec winheight(0)/4."split" | terminal python3 %
+    endfunction
+
+    nnoremap <C-R> :call Termpy() <CR>
+
+    command Pyrun execute ":w<CR>:vert ter python3 "%"<CR>"
+
+    map <leader>p :w<CR>:!python3 %<CR>
